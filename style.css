@@ -1,5 +1,4 @@
-/*
- * Styles for Skyline Design & Build website
+/* Styles for Skyline Design & Build website
  *
  * This CSS file defines the core styles for the construction
  * company website. It sets up a cohesive colour palette,
@@ -11,12 +10,12 @@
 
 /* Colour variables */
 :root {
-  --primary-color: #0a4d68;      /* deep blue used for headers and footer */
-  --secondary-color: #1269a7;    /* secondary blue for buttons */
-  --accent-color: #f9a826;       /* warm accent colour for call‑to‑actions */
-  --accent-hover: #e58e0a;       /* slightly darker accent on hover */
-  --text-color: #333333;         /* default text colour */
-  --light-bg: #f5f5f5;           /* light grey background for sections */
+  --primary-color: #0a4d68; /* deep blue used for headers and footer */
+  --secondary-color: #1269a7; /* secondary blue for buttons */
+  --accent-color: #f9a826; /* warm accent colour for call‑to‑actions */
+  --accent-hover: #e58e0a; /* slightly darker accent on hover */
+  --text-color: #333333; /* default text colour */
+  --light-bg: #f5f5f5; /* light grey background for sections */
 }
 
 /* Global resets and typography */
@@ -71,7 +70,7 @@ header .logo {
 }
 
 header .logo img {
-  height: 50px;
+  height: 80px; /* increased from 50px */
   width: auto;
 }
 
@@ -429,4 +428,10 @@ footer a {
 
 .contact-form button:hover {
   background: var(--accent-hover);
+}
+
+/* Larger logo in hero section */
+.hero-logo {
+  width: 200px;
+  margin-bottom: 1rem;
 }
