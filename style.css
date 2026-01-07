@@ -98,7 +98,8 @@ nav a:hover {
 /* Hero section for the home page */
 .hero {
   position: relative;
-  height: 70vh;
+  /* Increase hero height to fill the viewport for a more immersive effect */
+  height: 100vh;
   /* Flattened folder structure: reference hero image in project root */
   background-image: url('hero.png');
   background-size: cover;
@@ -434,4 +435,85 @@ footer a {
 .hero-logo {
   width: 200px;
   margin-bottom: 1rem;
+}
+
+/* Keyframes for hero background zoom effect */
+@keyframes heroZoom {
+  0% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+/*
+ * Intro animation overlay
+ *
+ * The home page features an animated introduction sequence that
+ * showcases the Skyline logo and transitions into an aerial view of
+ * a cityscape. The sequence plays on page load: the logo spins
+ * 360° and fades out, the aerial view fades in and slowly zooms
+ * towards the city, and then the entire overlay fades away to
+ * reveal the underlying hero section. To customise the timing or
+ * effect, adjust the animation durations and delays below.
+ */
+
+/* Container for the intro animation overlay */
+#intro-animation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary-color);
+  z-index: 2000;
+  /* Fade the overlay out after all animations complete */
+  animation: hideIntro 1s ease 7.5s forwards;
+}
+
+/* Logo inside the intro animation */
+#animated-logo {
+  width: 200px;
+  height: auto;
+  /* Spin the logo and then fade it out */
+  animation: spin 2s linear 0s forwards, fadeOutLogo 0.5s ease 2s forwards;
+}
+
+/* Aerial image that appears after the logo fades */
+#building-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  /* Fade the image in and zoom it */
+  animation: fadeInBuilding 1s ease 2.5s forwards, zoomInBuilding 4s ease 2.5s forwards;
+}
+
+/* Keyframes controlling the intro sequence */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes fadeOutLogo {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes fadeInBuilding {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes zoomInBuilding {
+  from { transform: scale(1); }
+  to { transform: scale(1.4); }
+}
+
+@keyframes hideIntro {
+  from { opacity: 1; }
+  to { opacity: 0; visibility: hidden; }
 }
